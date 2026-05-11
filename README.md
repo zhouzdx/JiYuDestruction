@@ -36,7 +36,7 @@
 
 ## 下载
 
-👉 **[前往 Releases 页面下载最新版](https://github.com/zhouzdx/Jiyu_udp_attack/releases)**
+👉 **[前往 Releases 页面下载最新版](https://github.com/zhouzdx/JiYuDestruction/releases)**
 
 ## 使用方法
 

